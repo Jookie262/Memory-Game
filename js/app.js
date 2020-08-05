@@ -52,7 +52,7 @@ let playGame = function(){
 
     //Create a section with a class of grid-game
     const gameGrid = document.createElement('section');
-    gameGrid.classList.add('grid-game');
+    gameGrid.setAttribute('class','grid-game');
     gameScreen.appendChild(gameGrid);
 
     //lets duplicate the cards array
@@ -62,6 +62,30 @@ let playGame = function(){
     let gameCount = 0;
     let firstGuess = '';
     let secondGuess = '';
+    let previousClick = null;
+    let loadDelay = 1200;
+
+    //create a match function 
+    let gameMatch = function(){
+        let select = document.querySelectorAll('.selected');
+        select.forEach(function(card){
+            card.classList.add('match');
+        });
+    }
+
+    //create a reset function 
+    let gameReset = function(){
+        gameCount = 0;
+        firstGuess = '';
+        secondGuess = '';
+        previousClick = null;
+        
+        let select = document.querySelectorAll('.selected');
+        select.forEach(function(card){
+            card.classList.remove('selected');
+        });
+    }
+
 
     //shuffles the cards every reload of the page
     doubleCards.sort(function(){
@@ -82,34 +106,13 @@ let playGame = function(){
         gameGrid.appendChild(gameCard);
     });
 
-    //create a match function 
-    let gameMatch = function(){
-        let select = document.querySelectorAll('.selected');
-        select.forEach(function(card){
-            card.classList.add('match');
-        });
-    }
-
-    //create a reset function 
-    let gameReset = function(){
-        gameCount = 0;
-        firstGuess = '';
-        secondGuess = '';
-
-        let select = document.querySelectorAll('.selected');
-        select.forEach(function(card){
-            card.classList.remove('selected');
-        });
-    }
-
     //when clicking each card;
     gameGrid.addEventListener('click', function(e){
         let click = e.target;
 
-        if(!(click.nodeName == 'SECTION')){
+        if(!(click.nodeName == 'SECTION' || click == previousClick)){
             if(gameCount < 2){
                 gameCount++;
-    
                 if(gameCount === 1){
                     firstGuess = click.dataset.name;
                     click.classList.add('selected');
@@ -120,14 +123,15 @@ let playGame = function(){
     
                 if(firstGuess !== '' && secondGuess !== ''){
                     if(firstGuess === secondGuess){
-                        gameMatch();
-                        gameReset();
+                        setTimeout(gameMatch, loadDelay);
+                        setTimeout(gameReset, loadDelay);
                     }else {
-                        gameReset();
+                        setTimeout(gameReset, loadDelay);
                     }
                 }
-            }   
-        } 
+                previousClick = click;
+            }  
+        }
     });
     
 
