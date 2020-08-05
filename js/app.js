@@ -41,7 +41,7 @@ let welcomeScreen = function(){
     // call playGame function when clicking a button and hides welcome screen 
     but.addEventListener('click', function(){
         welcome.classList.add('hide');
-        playGame();
+        setTimeout(playGame, 1000);
     });
 
 }
