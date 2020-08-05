@@ -1,8 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
 
 body {
     text-align: center;
@@ -57,21 +58,53 @@ button:focus {
 
 .card {
     position: relative;
+    transition: all 0.4s linear;
     transform-style: preserve-3d;
     margin: 5px;
-    height: 310px;
-    background-size: cover;
-    width: 230px;
 }
 
-.selected {
-    border: 1px solid black;
+.frontCard,
+.backCard,
+.card {
+    width: 230px;
+    height: 310px;
+}
+
+.frontCard,
+.backCard {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.frontCard {
+    background: url('../img/card2.png') no-repeat center center;
+    background-size: 210px 310px;
+}
+
+.backCard {
+    transform: rotateY(180deg);
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .card:hover {
     cursor: pointer;
 }
 
-.match {
-    border: 1px solid red;
+.match .frontCard {
+    background: transparent !important;
+  }
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.match:hover {
+  cursor: auto;
 }

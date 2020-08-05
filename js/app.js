@@ -99,26 +99,33 @@ let playGame = function(){
 
         const gameCard = document.createElement('div');
         gameCard.classList.add('card');
-
         gameCard.dataset.name = name;
-        gameCard.style.backgroundImage = backgroundImage;
+
+        const frontCard = document.createElement('div');
+        frontCard.classList.add('frontCard');
+
+        const backCard = document.createElement('div');
+        backCard.classList.add('backCard');
+        backCard.style.backgroundImage = backgroundImage;
 
         gameGrid.appendChild(gameCard);
+        gameCard.appendChild(frontCard);
+        gameCard.appendChild(backCard);
     });
 
     //when clicking each card;
     gameGrid.addEventListener('click', function(e){
         let click = e.target;
 
-        if(!(click.nodeName == 'SECTION' || click == previousClick)){
+        if(!(click.nodeName == 'SECTION' || click == previousClick || click.parentNode.classList.contains('selected') || click.parentNode.classList.contains('match'))){
             if(gameCount < 2){
                 gameCount++;
                 if(gameCount === 1){
-                    firstGuess = click.dataset.name;
-                    click.classList.add('selected');
+                    firstGuess = click.parentNode.dataset.name;
+                    click.parentNode.classList.add('selected');
                 }else {
-                    secondGuess = click.dataset.name;
-                    click.classList.add('selected');
+                    secondGuess = click.parentNode.dataset.name;
+                    click.parentNode.classList.add('selected');
                 }
     
                 if(firstGuess !== '' && secondGuess !== ''){
@@ -133,8 +140,6 @@ let playGame = function(){
             }  
         }
     });
-    
-
 }
 
 
