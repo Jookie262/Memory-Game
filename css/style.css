@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,11 +11,11 @@ body {
     background-attachment: fixed;
 }
 
-.welcomeScreen {
-    margin-top: 200px;
-}
+
+/* WelcomeScreen funcions css */
 
 #gamelogo {
+    margin-top: 200px;
     width: 580px;
 }
 
@@ -40,4 +41,24 @@ button:focus {
 .hide {
     height: 0;
     opacity: 0;
+}
+
+
+
+/* PlayGame functions css */
+
+.grid-game {
+    max-width: 2000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px auto;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    height: 310px;
+    background-size: cover;
+    width: 230px;
 }

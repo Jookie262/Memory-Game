@@ -50,7 +50,33 @@ let welcomeScreen = function(){
 
 let playGame = function(){
 
+    //Create a section with a class of grid-game
+    const gameGrid = document.createElement('section');
+    gameGrid.classList.add('grid-game');
+    gameScreen.appendChild(gameGrid);
 
+    //lets duplicate the cards array
+    let doubleCards = cards.concat(cards);
+
+    //shuffles the cards every reload of the page
+    doubleCards.sort(function(){
+        return 0.5 - Math.random();
+    })
+
+    //for every items inside the card lets create in html
+    doubleCards.forEach(function(item){
+        let name = item.name;
+        let backgroundImage = `url(${item.img})`;
+
+        const gameCard = document.createElement('div');
+        gameCard.classList.add('card');
+
+        gameCard.dataset.name = name;
+        gameCard.style.backgroundImage = backgroundImage;
+
+        gameGrid.appendChild(gameCard);
+    });
+    
 
 }
 
