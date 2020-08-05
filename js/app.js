@@ -58,10 +58,13 @@ let playGame = function(){
     //lets duplicate the cards array
     let doubleCards = cards.concat(cards);
 
+    //game variables
+    let gameCount = 0;
+
     //shuffles the cards every reload of the page
     doubleCards.sort(function(){
         return 0.5 - Math.random();
-    })
+    });
 
     //for every items inside the card lets create in html
     doubleCards.forEach(function(item){
@@ -75,6 +78,17 @@ let playGame = function(){
         gameCard.style.backgroundImage = backgroundImage;
 
         gameGrid.appendChild(gameCard);
+    });
+
+    //when clicking each card;
+    gameGrid.addEventListener('click', function(e){
+        let click = e.target;
+
+        if(gameCount < 2){
+            gameCount++;
+            click.classList.add('selected');
+        }
+        console.log(click);
     });
     
 

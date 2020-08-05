@@ -58,7 +58,16 @@ button:focus {
 .card {
     position: relative;
     transform-style: preserve-3d;
+    margin: 5px;
     height: 310px;
     background-size: cover;
     width: 230px;
+}
+
+.selected {
+    border: 1px solid black;
+}
+
+.card:hover {
+    cursor: pointer;
 }
