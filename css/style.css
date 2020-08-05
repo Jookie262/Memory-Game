@@ -71,3 +71,7 @@ button:focus {
 .card:hover {
     cursor: pointer;
 }
+
+.match {
+    border: 1px solid red;
+}

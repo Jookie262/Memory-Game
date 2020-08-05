@@ -60,6 +60,8 @@ let playGame = function(){
 
     //game variables
     let gameCount = 0;
+    let firstGuess = '';
+    let secondGuess = '';
 
     //shuffles the cards every reload of the page
     doubleCards.sort(function(){
@@ -80,15 +82,52 @@ let playGame = function(){
         gameGrid.appendChild(gameCard);
     });
 
+    //create a match function 
+    let gameMatch = function(){
+        let select = document.querySelectorAll('.selected');
+        select.forEach(function(card){
+            card.classList.add('match');
+        });
+    }
+
+    //create a reset function 
+    let gameReset = function(){
+        gameCount = 0;
+        firstGuess = '';
+        secondGuess = '';
+
+        let select = document.querySelectorAll('.selected');
+        select.forEach(function(card){
+            card.classList.remove('selected');
+        });
+    }
+
     //when clicking each card;
     gameGrid.addEventListener('click', function(e){
         let click = e.target;
 
-        if(gameCount < 2){
-            gameCount++;
-            click.classList.add('selected');
-        }
-        console.log(click);
+        if(!(click.nodeName == 'SECTION')){
+            if(gameCount < 2){
+                gameCount++;
+    
+                if(gameCount === 1){
+                    firstGuess = click.dataset.name;
+                    click.classList.add('selected');
+                }else {
+                    secondGuess = click.dataset.name;
+                    click.classList.add('selected');
+                }
+    
+                if(firstGuess !== '' && secondGuess !== ''){
+                    if(firstGuess === secondGuess){
+                        gameMatch();
+                        gameReset();
+                    }else {
+                        gameReset();
+                    }
+                }
+            }   
+        } 
     });
     
 
