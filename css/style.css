@@ -10,7 +10,7 @@ body {
     background-attachment: fixed;
 }
 
-#screen {
+.welcomeScreen {
     margin-top: 200px;
 }
 
