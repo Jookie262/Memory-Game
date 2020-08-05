@@ -36,3 +36,8 @@ button:focus {
     outline: 0;
     border: none;
 }
+
+.hide {
+    height: 0;
+    opacity: 0;
+}

@@ -2,7 +2,6 @@
 *   Functions are located here
 */
 
-
 // Fetch elements in the html
 const gameScreen = document.getElementById('game-screen'); 
 
@@ -38,6 +37,20 @@ let welcomeScreen = function(){
     welcome.appendChild(br);
     welcome.appendChild(but);
     but.appendChild(img2);
+
+    // call playGame function when clicking a button and hides welcome screen 
+    but.addEventListener('click', function(){
+        welcome.classList.add('hide');
+        playGame();
+    });
+
+}
+
+// functions that starts a game
+
+let playGame = function(){
+
+
 
 }
 
