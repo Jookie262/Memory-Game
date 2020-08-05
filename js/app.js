@@ -3,7 +3,10 @@
 */
 
 // Fetch elements in the html
-const gameScreen = document.getElementById('game-screen'); 
+const gameScreen = document.getElementById('game-screen');
+
+//sounds in the game
+let clickSound = new Audio('./sounds/clickCut.mp3');
 
 //Lets recreate welcome screen using vanilla javascript
 let welcomeScreen = function(){
@@ -40,8 +43,9 @@ let welcomeScreen = function(){
 
     // call playGame function when clicking a button and hides welcome screen 
     but.addEventListener('click', function(){
+        clickSound.play();
         welcome.classList.add('hide');
-        setTimeout(playGame, 1000);
+        setTimeout(playGame, 500);
     });
 
 }

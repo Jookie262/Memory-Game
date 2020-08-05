@@ -63,9 +63,9 @@ button:focus {
     transition: all 0.4s linear;
     transform-style: preserve-3d;
     margin: 5px 2px;
-    animation: fadeInUpBig 2s;
-    -moz-animation: fadeInUpBig 2s;
-    -webkit-animation: fadeInUpBig 2s;
+    animation: fadeInUpBig 1.5s;
+    -moz-animation: fadeInUpBig 1.5s;
+    -webkit-animation: fadeInUpBig 1.5s;
 }
 
 .frontCard,
@@ -131,7 +131,7 @@ button:focus {
 @keyframes fadeInUpBig {
     0% {
        opacity: 0;
-       transform: translateY(650px);
+       transform: translateY(600px);
     }
     100% {
        opacity: 1;
