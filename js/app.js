@@ -50,7 +50,7 @@ let welcomeScreen = function(){
         backgroundMusic.loop = true;
         backgroundMusic.volume = 0.65;
         welcome.classList.add('hide');
-        setTimeout(playGame, 500);
+        setTimeout(gameStart, 500);
     });
     
 
@@ -58,7 +58,7 @@ let welcomeScreen = function(){
 
 // functions that starts a game
 
-let playGame = function(){
+let gameStart = function(){
 
     //Create a section with a class of grid-game
     const gameGrid = document.createElement('section');
@@ -72,8 +72,9 @@ let playGame = function(){
     let gameCount = 0;
     let firstGuess = '';
     let secondGuess = '';
+    let congratsGame = 0;
     let previousClick = null;
-    let loadDelay = 1200;
+    let gameDelay = 1200;
 
     //create a match function 
     let gameMatch = function(){
@@ -140,19 +141,29 @@ let playGame = function(){
     
                 if(firstGuess !== '' && secondGuess !== ''){
                     if(firstGuess === secondGuess){
+                        congratsGame++;
                         correctSound.play();
-                        setTimeout(gameMatch, loadDelay);
-                        setTimeout(gameReset, loadDelay);
+                        correctSound.volume = 0.3;
+                        setTimeout(gameMatch, gameDelay);
+                        setTimeout(gameReset, gameDelay);
                     }else {
-                        setTimeout(gameReset, loadDelay);
+                        setTimeout(gameReset, gameDelay);
                     }
                 }
                 previousClick = click;
-            }  
+            } 
+            
+            if(congratsGame == cards.length){
+                setTimeout(gameFinish, 1400);
+            }
         }
     });
 }
 
+let gameFinish = function(){
+    gameScreen.innerHTML = 'Congratulation Boy';
+    backgroundMusic.pause();
+}
 
 // Call the function
 window.onload = function(){
