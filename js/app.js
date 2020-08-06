@@ -7,6 +7,7 @@ const gameScreen = document.getElementById('game-screen');
 
 //sounds in the game
 let clickSound = new Audio('./sounds/clickCut.mp3');
+let backgroundMusic = new Audio('./sounds/bgMusicCut.mp3'); 
 
 //Lets recreate welcome screen using vanilla javascript
 let welcomeScreen = function(){
@@ -44,9 +45,13 @@ let welcomeScreen = function(){
     // call playGame function when clicking a button and hides welcome screen 
     but.addEventListener('click', function(){
         clickSound.play();
+        backgroundMusic.play();
+        backgroundMusic.loop = true;
+        backgroundMusic.volume = 0.65;
         welcome.classList.add('hide');
         setTimeout(playGame, 500);
     });
+    
 
 }
 
@@ -148,4 +153,6 @@ let playGame = function(){
 
 
 // Call the function
-welcomeScreen();
+window.onload = function(){
+    welcomeScreen();
+}
