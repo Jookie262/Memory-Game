@@ -8,6 +8,7 @@ const gameScreen = document.getElementById('game-screen');
 //sounds in the game
 let clickSound = new Audio('./sounds/clickCut.mp3');
 let backgroundMusic = new Audio('./sounds/bgMusicCut.mp3'); 
+let correctSound = new Audio('./sounds/correctCut.mp3');   
 
 //Lets recreate welcome screen using vanilla javascript
 let welcomeScreen = function(){
@@ -139,6 +140,7 @@ let playGame = function(){
     
                 if(firstGuess !== '' && secondGuess !== ''){
                     if(firstGuess === secondGuess){
+                        correctSound.play();
                         setTimeout(gameMatch, loadDelay);
                         setTimeout(gameReset, loadDelay);
                     }else {
