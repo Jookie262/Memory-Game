@@ -24,7 +24,7 @@ let welcomeScreen = function(){
     welcome.classList.add('welcomeScreen');
 
     const img1 = document.createElement('img');
-    img1.setAttribute('id','gamelogo');
+    img1.setAttribute('class','gamelogo');
     img1.setAttribute('alt','Welcome Logo');
     img1.src="img/test3.png"
 
@@ -161,7 +161,10 @@ let gameStart = function(){
 }
 
 let gameFinish = function(){
-    gameScreen.innerHTML = 'Congratulation Boy';
+    gameScreen.innerHTML = `
+        <img src="img/congrats.png" class="gamecongrats"/>
+    `;
+
     backgroundMusic.pause();
 }
 

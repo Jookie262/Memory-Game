@@ -16,9 +16,14 @@ body {
 
 /* WelcomeScreen funcions css */
 
-#gamelogo {
+.gamelogo {
     margin-top: 200px;
     width: 580px;
+}
+
+.gamecongrats {
+    width: 650px;
+    margin-top: 250px;
 }
 
 #start img {
