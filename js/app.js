@@ -8,7 +8,8 @@ const gameScreen = document.getElementById('game-screen');
 //sounds in the game
 let clickSound = new Audio('./sounds/clickCut.mp3');
 let backgroundMusic = new Audio('./sounds/bgMusicCut.mp3'); 
-let correctSound = new Audio('./sounds/correctCut.mp3');   
+let correctSound = new Audio('./sounds/correctCut.mp3');
+let congratSound = new Audio('./sounds/endingCut.mp3');   
 
 //Lets recreate welcome screen using vanilla javascript
 let welcomeScreen = function(){
@@ -161,6 +162,9 @@ let gameStart = function(){
 }
 
 let gameFinish = function(){
+    congratSound.play();
+    congratSound.volume = 0.45;
+
     gameScreen.innerHTML = `
         <img src="img/congrats.png" class="gamecongrats"/>
     `;
