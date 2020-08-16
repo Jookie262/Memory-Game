@@ -3,3 +3,14 @@
   A Simple and Fun Memory Game that has custom design which is made with Javascript that you can play with.
 </p>
 
+## Instructions Of The Game ✨
+
+* Welcome Screen Appears
+* Click Play Button
+* Display 5 Cards
+* Duplicate 5 cards resulting to 10
+* Choose Only 2 cards at a time
+* Clicking the Card results to flips
+* Reset the Cards when picking the wrong pair
+* Finish The Game
+
