@@ -14,3 +14,11 @@
 * Reset the Cards when picking the wrong pair
 * Finish The Game
 
+## Game Resources 🎮
+
+* Logo Design and Cards - Personal Design
+* Background SVG - [svgbackgrounds.com](svgbackgrounds.com)
+* Background Music - Animal Crossing K.K Soul
+* Sound Effects - [Youtube](www.youtube.com)
+
+
