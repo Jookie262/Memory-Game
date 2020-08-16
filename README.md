@@ -20,6 +20,9 @@
 * Background SVG - [svgbackgrounds.com](svgbackgrounds.com)
 * Background Music - Animal Crossing K.K Soul
 * Sound Effects - [Youtube](www.youtube.com)
+* Reference Of Making This Game 
+ * [Tutorial](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/)
+ * [Github Repository](https://github.com/taniarascia/memory)
 
 ## Contribution 🔥
 
